@@ -1,1 +1,1 @@
-# flask-project
+# flask-template-project
