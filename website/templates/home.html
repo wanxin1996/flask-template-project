@@ -2,5 +2,22 @@
 {% block title %}主页{% endblock %}
 
 {% block content %}
-<h1>真相辅导主页</h1>
+<h1 align="center">真相辅导主页</h1>
+<h1 align="center">笔记</h1>
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item">
+        {{ note.data }}
+        <button type="button" class="close" onclick="deleteNote({{ note.id }})">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </li>
+    {% endfor %}
+</ul>
+<form method="POST">
+    <textarea name="note" id="note" class="form-control"></textarea>
+    <div align="center">
+        <button type="submit" class="btn btn-primary">提交</button>
+    </div>
+</form>
 {% endblock %}
